@@ -1,0 +1,18 @@
+<!--Scroll infinito que va actualizando los personajes en tiempo real mientras el usuario baja en la ventana-->
+<div class="row" infinite-scroll (scrolled)="scrollDown()">
+  <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let personaje of personajes">
+    <app-personaje [personaje]="personaje"></app-personaje>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 mt-5 container-notFound"
+  *ngIf="personajes.length <= 0"> <!--Condicion para mandar mensaje de no hay resultados en caso de escribir nombres incorrectos-->
+    <h2>No hay resultados</h2>
+    <br>
+    <button (click)="volver()" class="btn btn-primary">
+      Volver
+    </button>
+  </div>
+</div>
+<button [ngClass]="'no-hidden'" *ngIf="mostrarBotonInicio" class="btn btn-dark" (click) = "scrollUp()">
+  Volver al inicio <!--Boton que funciona para regresar al inicio de la pagina luego de bajar por medio del scroll infinito-->
+</button>

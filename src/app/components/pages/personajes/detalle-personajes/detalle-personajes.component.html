@@ -1,0 +1,35 @@
+<div class="row justify-content-center mt-3" *ngIf="personajes | async as personaje"> <!--Centrar el card del personaje-->
+  <div class="col-xs-12 col-sm-6 col-md-6 justify-content-center">
+    <div class="card">
+      <div class="image">
+        <a [routerLink]="['/detalle_personajes', personaje.id]">
+          <img
+            [src]="personaje.image"
+            [alt]="personaje.name"
+            class="card-img-top"
+          />
+        </a>
+      </div>
+      <div class="card-inner">
+        <div class="header">
+          <a [routerLink]="['/detalle_personajes', personaje.id]"></a>
+          <!--Caracteristicas del personaje traidos desde la api-->
+          <h4>Name: {{personaje.name | slice: 0:15}}</h4>
+          <h4>Gender: {{personaje.gender}}</h4>
+          <h4>Created: {{personaje.created | date}}</h4>
+          <h4>Specie: {{personaje.species}}</h4>
+          <h4>Status: {{personaje.status}}</h4>
+          <h4>Origin: {{personaje.origin.name}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center mt-3">
+  <div class="col-xs-12 col-sm-6 col-md-6 text-center">
+    <button (click)="volver()" class="btn btn-primary btn-lg">
+      Regresar
+    </button>
+  </div>
+</div>
