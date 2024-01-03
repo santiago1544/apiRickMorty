@@ -21,10 +21,14 @@ export class BuscadorComponent implements OnInit {
   ngOnInit(): void {}
 
   onSearch(value: string) {
-    if (value && value.length > 3) { //Condicion para que en el momento que se digiten 4 o mas carácteres en la barra, la página muestre resultados
+    if (value && value.length > 1) { //Condicion para que en el momento que se digiten 4 o mas carácteres en la barra, la página muestre resultados
       this.router.navigate(['/lista_personajes'], {
         queryParams: { q: value },
       });
+    }
+
+    if (value && value.length <= 1) { //Condicion para que en el momento que se digiten 4 o mas carácteres en la barra, la página muestre resultados
+      this.router.navigate(['/']);
     }
   }
 }
