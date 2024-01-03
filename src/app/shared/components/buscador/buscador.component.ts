@@ -27,7 +27,7 @@ export class BuscadorComponent implements OnInit {
       });
     }
 
-    if (value && value.length <= 1) { //Condicion para que en el momento que se digiten 4 o mas carácteres en la barra, la página muestre resultados
+    if (value && value.length <= 1) { //Condicion para que la página vuelva a su estado original luego de borrar los datos de la barra de busqueda
       this.router.navigate(['/']);
     }
   }
